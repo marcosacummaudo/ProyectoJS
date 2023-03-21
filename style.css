@@ -1,0 +1,14 @@
+.subrayado {
+    color: #1B4965;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.div__ul__li {
+    color: #1B4965;
+    font-size: 15px;
+    text-align: justify;
+    margin-bottom: 0px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    list-style-type: square;
+}
