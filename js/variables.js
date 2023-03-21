@@ -72,3 +72,4 @@ const mensajeInicial =  "¡Bienvenido a Heladería Roma!\n" +
                         tamHelados[3].codigo + " - " + tamHelados[3].nombre + ": $" + tamHelados[3].precio + " | Cantidad de gustos: " + tamHelados[3].cantGustos + "\n" +
                         tamHelados[4].codigo + " - " + tamHelados[4].nombre + ": $" + tamHelados[4].precio + " | Cantidad de gustos: " + tamHelados[4].cantGustos + "\n" +
                         "¡Ingrese el número de la opción seleccionada!"
+

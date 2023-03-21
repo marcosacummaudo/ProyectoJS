@@ -9,9 +9,7 @@ function calcularVuelto(pago, importe) {
 function revisarPago(opcionElegida) {
     let pago
     let precioAPagar = 0
-    opcionElegida.forEach(el => {
-        precioAPagar = precioAPagar + el.precio
-    });
+    precioAPagar = opcionElegida.reduce((acum, el) => acum + el.precio, 0)
     do {
         do {
             pago = parseFloat(prompt("El importe a pagar es $" + precioAPagar + ", ¿con cuanto abonara?\n" +
@@ -22,7 +20,6 @@ function revisarPago(opcionElegida) {
 }
 
 function saludar() {
-    // let precio
     let respuesta1 = "False"
         do {
             do {
@@ -51,7 +48,7 @@ function saludar() {
 }
 
 function ejecutar() {
-    debugger
+    //debugger
     let respuesta = "False"
     do {
         compra.splice(0, compra.length)
