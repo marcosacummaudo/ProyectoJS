@@ -1,7 +1,25 @@
+* {
+    margin: 0;
+    padding: 0; }
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #F1FAEE;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .subrayado {
     color: #1B4965;
     text-align: center;
     text-decoration: underline;
+}
+
+.encabezado {
+    color: #1B4965;
+    text-align: left;
 }
 
 .div__ul__li {
@@ -11,4 +29,28 @@
     margin-bottom: 0px;
     font-family: "Lucida Console", "Courier New", monospace;
     list-style-type: square;
+}
+
+.cardPrecio {
+    display: flex;
+    justify-content: center;
+    width: 10rem;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-title {
+    height: 45px;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+}
+
+.prod {
+    width: 30%;
+    background-color: #1B4965;
+    border-color: #1B4965;;
 }

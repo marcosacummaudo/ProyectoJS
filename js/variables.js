@@ -1,10 +1,11 @@
 let opcion
 
 class tamHelado {
-    constructor(codigo,nombre,precio,cantGustos) {
+    constructor(codigo,nombre,precio,imagen,cantGustos) {
         this.codigo = codigo
         this.nombre = nombre
         this.precio = precio
+        this.imagen = imagen
         this.cantGustos = cantGustos
     }
 }
@@ -18,17 +19,27 @@ class sabor {
     }
 }
 
+class artCompra {
+    constructor(codigo,nombre,precio,cantidad) {
+        this.codigo = codigo
+        this.nombre = nombre
+        this.precio = precio
+        this.cantidad = cantidad
+        this.precioTotal = (this.precio * this.cantidad)
+    }
+}
+
 const tamHelados = []
 
 const sabores = []
 
 const compra = []
 
-tamHelados.push(new tamHelado(1, "1 Kilo", 2000, 4))
-tamHelados.push(new tamHelado(2, "1/2 Kilo", 1000, 4))
-tamHelados.push(new tamHelado(3, "1/4 Kilo", 500, 3))
-tamHelados.push(new tamHelado(4, "Cono o Vasito Grande", 400, 2))
-tamHelados.push(new tamHelado(5, "Cono o Vasito Chico", 250, 1))
+tamHelados.push(new tamHelado(1, "1 Kilo", 2000,"img/Kilo.JPG", 4))
+tamHelados.push(new tamHelado(2, "1/2 Kilo", 1000,"img/1-2Kg.JPG", 4))
+tamHelados.push(new tamHelado(3, "1/4 Kilo", 500,"img/1-4Kilo.JPG", 3))
+tamHelados.push(new tamHelado(4, "Cono/Vasito Grande", 400,"img/2Gustos.png", 2))
+tamHelados.push(new tamHelado(5, "Cono/Vasito Chico", 250,"img/1Gusto.png", 1))
 
 sabores.push(new sabor(1, "Chantilly", "Cremas Clasicas y Especiales", "Crema, pero con nuestra tradicional receta."))
 sabores.push(new sabor(2, "Granizado", "Cremas Clasicas y Especiales", "Chantilly con trozos de chocolate semi amargo."))
@@ -64,12 +75,12 @@ sabores.push(new sabor(31, "Frutos del Bosque", "Frutas al Agua", "Moras, rosa m
 sabores.push(new sabor(32, "Pomelo Rosado", "Frutas al Agua", "Un cítrico especial para un helado único."))
 sabores.push(new sabor(33, "Kiwi", "Frutas al Agua", "Frescura, suavidad y delicadeza en un gusto helado."))
 
-const mensajeInicial =  "¡Bienvenido a Heladería Roma!\n" + 
-                        "¿Qué tamaño de helado desea comprar?\n" +
-                        tamHelados[0].codigo + " - " + tamHelados[0].nombre + ": $" + tamHelados[0].precio + " | Cantidad de gustos: " + tamHelados[0].cantGustos + "\n" +
-                        tamHelados[1].codigo + " - " + tamHelados[1].nombre + ": $" + tamHelados[1].precio + " | Cantidad de gustos: " + tamHelados[1].cantGustos + "\n" +
-                        tamHelados[2].codigo + " - " + tamHelados[2].nombre + ": $" + tamHelados[2].precio + " | Cantidad de gustos: " + tamHelados[2].cantGustos + "\n" +
-                        tamHelados[3].codigo + " - " + tamHelados[3].nombre + ": $" + tamHelados[3].precio + " | Cantidad de gustos: " + tamHelados[3].cantGustos + "\n" +
-                        tamHelados[4].codigo + " - " + tamHelados[4].nombre + ": $" + tamHelados[4].precio + " | Cantidad de gustos: " + tamHelados[4].cantGustos + "\n" +
-                        "¡Ingrese el número de la opción seleccionada!"
+// const mensajeInicial =  "¡Bienvenido a Heladería Roma!\n" + 
+//                         "¿Qué tamaño de helado desea comprar?\n" +
+//                         tamHelados[0].codigo + " - " + tamHelados[0].nombre + ": $" + tamHelados[0].precio + " | Cantidad de gustos: " + tamHelados[0].cantGustos + "\n" +
+//                         tamHelados[1].codigo + " - " + tamHelados[1].nombre + ": $" + tamHelados[1].precio + " | Cantidad de gustos: " + tamHelados[1].cantGustos + "\n" +
+//                         tamHelados[2].codigo + " - " + tamHelados[2].nombre + ": $" + tamHelados[2].precio + " | Cantidad de gustos: " + tamHelados[2].cantGustos + "\n" +
+//                         tamHelados[3].codigo + " - " + tamHelados[3].nombre + ": $" + tamHelados[3].precio + " | Cantidad de gustos: " + tamHelados[3].cantGustos + "\n" +
+//                         tamHelados[4].codigo + " - " + tamHelados[4].nombre + ": $" + tamHelados[4].precio + " | Cantidad de gustos: " + tamHelados[4].cantGustos + "\n" +
+//                         "¡Ingrese el número de la opción seleccionada!"
 
