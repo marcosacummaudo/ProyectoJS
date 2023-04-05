@@ -3,14 +3,9 @@ const totalAPagar = document.querySelector("div#totalAPagar")
 const botonPagar = document.querySelector("button.btn.btn-primary.btn-lg.pagar.botonGrande")
 const botonSeguirComprando = document.querySelector("button.btn.btn-primary.btn-lg.seguirComprando.botonGrande")
 
-
 const cargarProductos = (array) => {
     let tabla = ""
-    if (array.length > 0) {
-        array.forEach(prod => {
-            tabla += retornoTablaHTML(prod)
-        })
-    }
+    array.length > 0 && array.forEach(prod => {tabla += retornoTablaHTML(prod)})
     tbody.innerHTML = tabla
     totalAPagar.innerHTML = "El total a pagar es: $ " + calculaTotal()
 }
@@ -18,24 +13,16 @@ const cargarProductos = (array) => {
 let tarjetaPrecio = document.querySelector("section.row")
 
 const guardarCompraStorage = () => {
-    if (compra.length > 0) {
-        localStorage.setItem("compra", JSON.stringify(compra))
-    }
+    compra.length > 0 && localStorage.setItem("compra", JSON.stringify(compra))
 }
 
 const recuperarCompraStorage = () => {
     const compraActual = JSON.parse(localStorage.getItem("compra"))
-    if (compraActual !== null) {
-        compra.push(...compraActual)
-    }
+    compraActual !== null && compra.push(...compraActual)
 }
 
 function cargarPrecios() {
-    if (tamHelados.length > 0) {
-        tamHelados.forEach(el => {
-            retornoCardPrecio(el)
-        })
-    }
+    tamHelados.length > 0 && tamHelados.forEach(el => {retornoCardPrecio(el)})
 }
 
 function agregarProdCarrito(el) {
@@ -67,7 +54,6 @@ function habilitarClic() {
     const botonPedir = document.querySelectorAll("button.btn.btn-primary.prod")
     for (boton of botonPedir){
         boton.addEventListener("click", (e) => {
-            debugger
             let codigo = parseInt(e.target.id)
             if(codigo > 0){
                 let prod = tamHelados.find((el) => el.codigo === codigo)
@@ -75,9 +61,7 @@ function habilitarClic() {
             }
             else {
                 let indice = compra.map(elem => elem.codigo).indexOf((-codigo))
-                if (indice >= 0) {
-                    quitarProdCarrito(indice)
-                }
+                indice >= 0 && quitarProdCarrito(indice)
             }
     })
     }
@@ -90,15 +74,12 @@ function calculaTotal() {
 }
 
 function revisarPagoVuelto(valor) {
-    debugger
     let total = calculaTotal()
     if (valor >= total) {
-        //botonConfirmaPagoFooterModal.addEventListener("click", () => confirmaCompra())
         footerModal.innerHTML = `<button type="button" class="btn btn-primary confirmaConfirmaPago" data-bs-dismiss="modal">Confirma Compra</button>`
         bodyModal.innerHTML = "El importe a pagar es $" + total + ".<br>" +
                             "Usted abonara con $" + valor + ".<br>" +
                             "Su vuelto es $" + (valor-total)
-        
         const botonConfirmaPagoFooterModal = document.querySelector("button.btn.btn-primary.confirmaConfirmaPago")
         botonConfirmaPagoFooterModal.addEventListener("click", () => confirmaCompra())
     }
@@ -111,4 +92,8 @@ function revisarPagoVuelto(valor) {
 function confirmaCompra() {
     localStorage.removeItem("compra")
     location.href ="index.html"
+}
+
+function IrAPagar() {
+    compra.length > 0 && (location.href = 'pagar.html')
 }

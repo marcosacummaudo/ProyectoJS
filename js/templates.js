@@ -19,17 +19,17 @@ footer.innerHTML = `
 
 contenedorTabla.innerHTML = `
     <table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>NOMBRE</th>
-            <th>CANTIDAD</th>
-            <th>PRECIO</th>
-            <th>IMPORTE</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-    </tbody>
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>CANTIDAD</th>
+                <th>PRECIO</th>
+                <th>IMPORTE</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
     </table>`
 
 const retornoTablaHTML = (prod)=> {
