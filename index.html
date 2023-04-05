@@ -23,47 +23,27 @@
     <title>Js-Entrega 2</title>
 </head>
 <body>
-    <!-- <script>ejecutar()</script> -->
-    <!-- <h1 class="subrayado">Curso JavaScript</h1>
-    <h3>Venta de Helados: Segunda Entrega</h3>
-    <p>Este sistema permite la elección de un tamaño de helado y luego el ingreso del valor con el que se abonará, para luego calcular y devolver el importe del vuelto.</p> -->
-    <h2 class="subrayado">¡Bienvenido a Heladería Roma!</h2>
+    <nav>
+        <h1 class="subrayado">¡Bienvenido a Heladería Roma!</h1>
+    </nav>
     <main class="container">
         <h5 class="encabezado">¿Qué tamaño de helado desea comprar?</h5>
-        <section class="row">
+        <section class="row tarjetas">
             <!-- dom >> tarjetaPredio -->
         </section>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>CANTIDAD</th>
-                    <th>PRECIO</th>
-                    <th>IMPORTE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <div id="totalAPagar">
-            
+        <h5 class="encabezado">Detalle de compra:</h5>
+        <div class="contentTabla">
+            <!-- <table> </table> -->
+        </div>
+        <div class="totalizaCompra" id="totalAPagar">
+            <!-- Totalizador Compra -->
         </div>
         <div>
-            <button type="button" class="btn btn-primary btn-lg pagar">Pagar</button>
-        </div>
-        <div>
-            <h5 class="encabezado">¿Qué sabor desea elegir?</h5>
-            <ul id="listaSabores"></ul>
-        </div>
-        <div>
-            <h5 class="encabezado">Su ultima compra fue:</h5>
-            <ul id="compraRealizada"></ul>
+            <button type="button" class="btn btn-primary btn-lg pagar botonGrande">Pagar</button>
         </div>
     </main>
+    <footer>
+        <!-- dom >> footer -->
+    </footer>
 </body>
 </html>

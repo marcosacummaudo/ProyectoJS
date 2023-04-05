@@ -74,13 +74,3 @@ sabores.push(new sabor(30, "Ananá", "Frutas al Agua", "Seleccionados ananas lic
 sabores.push(new sabor(31, "Frutos del Bosque", "Frutas al Agua", "Moras, rosa mosqueta y frambuesa, frescura y acidez."))
 sabores.push(new sabor(32, "Pomelo Rosado", "Frutas al Agua", "Un cítrico especial para un helado único."))
 sabores.push(new sabor(33, "Kiwi", "Frutas al Agua", "Frescura, suavidad y delicadeza en un gusto helado."))
-
-// const mensajeInicial =  "¡Bienvenido a Heladería Roma!\n" + 
-//                         "¿Qué tamaño de helado desea comprar?\n" +
-//                         tamHelados[0].codigo + " - " + tamHelados[0].nombre + ": $" + tamHelados[0].precio + " | Cantidad de gustos: " + tamHelados[0].cantGustos + "\n" +
-//                         tamHelados[1].codigo + " - " + tamHelados[1].nombre + ": $" + tamHelados[1].precio + " | Cantidad de gustos: " + tamHelados[1].cantGustos + "\n" +
-//                         tamHelados[2].codigo + " - " + tamHelados[2].nombre + ": $" + tamHelados[2].precio + " | Cantidad de gustos: " + tamHelados[2].cantGustos + "\n" +
-//                         tamHelados[3].codigo + " - " + tamHelados[3].nombre + ": $" + tamHelados[3].precio + " | Cantidad de gustos: " + tamHelados[3].cantGustos + "\n" +
-//                         tamHelados[4].codigo + " - " + tamHelados[4].nombre + ": $" + tamHelados[4].precio + " | Cantidad de gustos: " + tamHelados[4].cantGustos + "\n" +
-//                         "¡Ingrese el número de la opción seleccionada!"
-

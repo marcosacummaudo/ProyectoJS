@@ -1,3 +1,37 @@
+const contenedorTabla = document.querySelector("div.contentTabla")
+const footer = document.querySelector("footer")
+const fecha = new Date().getFullYear()
+
+footer.innerHTML = `
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <p class="text-center"><img src="img/phone.svg" alt="telefono"> 0345 4217711 | <a href="https://api.whatsapp.com/send/?phone=543454015523&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank"><img src="img/icons8-whatsapp24.svg" alt="whatsapp"> 3454015523</a></p>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <p class="text-center"><strong>© ${fecha} Helados Roma</strong></p>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <a href="https://www.instagram.com/heladeriaroma_/?hl=es" target="_blank"><p class="text-center"><img src="img/instagram.svg" alt="instagram"> ¡Seguinos!</p></a>
+            </div>
+        </div>
+    </div>`
+
+contenedorTabla.innerHTML = `
+    <table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>NOMBRE</th>
+            <th>CANTIDAD</th>
+            <th>PRECIO</th>
+            <th>IMPORTE</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+    </table>`
+
 const retornoTablaHTML = (prod)=> {
     return `<tr>
                 <td>${prod.nombre}</td>
@@ -20,42 +54,11 @@ function retornoCardPrecio(el) {
 }
 
 function devolverFormaPago () {
-    if (imputEfectivo.checked) {
-        formaPago.innerHTML = `
+    formaPago.innerHTML = `
         <h6>Ingrese el importe con el que va a pagar:</h6>
-        <div class="input-group mb-3">
+        <div class="col-6 input-group mb-3">
             <span class="input-group-text">$</span>
             <span class="input-group-text">0.00</span>
             <input type="text" class="form-control" id="ingresoEfectivo" aria-label="Dollar amount (with dot and two decimal places)">
         </div>`
-    }
-    else {
-        formaPago.innerHTML = `
-            <h6>Ingrese los datos de la tarjeta:</h6>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="cc-name">Nombre Titular Tarjeta</label>
-                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                    <small class="text-muted">Se requiere el nombre completo como figura en la tarjeta</small>
-                    <div class="invalid-feedback">Name on card is required</div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="cc-number">Credit card number</label>
-                    <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                    <div class="invalid-feedback">Credit card number is required</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label for="cc-expiration">Expiration</label>
-                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                    <div class="invalid-feedback">Expiration date required</div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="cc-expiration">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                    <div class="invalid-feedback">Security code required</div>
-                </div>
-            </div>`
-    }
 }

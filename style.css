@@ -7,14 +7,13 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #F1FAEE;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 
 .subrayado {
     color: #1B4965;
     text-align: center;
     text-decoration: underline;
+    margin-bottom: 10px;
 }
 
 .encabezado {
@@ -22,19 +21,28 @@ body {
     text-align: left;
 }
 
-.div__ul__li {
-    color: #1B4965;
-    font-size: 15px;
-    text-align: justify;
-    margin-bottom: 0px;
-    font-family: "Lucida Console", "Courier New", monospace;
-    list-style-type: square;
+.tarjetas {
+    display: flex;
+    justify-content: center;
 }
 
 .cardPrecio {
     display: flex;
     justify-content: center;
     width: 10rem;
+}
+
+.contentTabla {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    width: 80%;
+}
+
+td {
+    width: 25%;
 }
 
 .card-body {
@@ -53,4 +61,36 @@ body {
     width: 30%;
     background-color: #1B4965;
     border-color: #1B4965;;
+}
+
+.botonGrande {
+    background-color: #1B4965;
+    border-color: #1B4965;
+}
+
+.totalizaCompra {
+    font-size: 20px;
+    color:  #1B4965;
+    text-align: right;
+    margin-right: 20%;
+    font-weight: bold;
+}
+
+footer {
+    padding-top: 15px;
+    margin-top: auto;
+    background-color: #1B4965; }
+    footer a {
+        color: #F1FAEE;
+        font-size: 15px; }
+    footer p {
+        color: #F1FAEE;
+        font-size: 15px; }
+
+nav {
+    padding: 10px;
+}
+
+main {
+    margin-bottom: 15px;
 }
