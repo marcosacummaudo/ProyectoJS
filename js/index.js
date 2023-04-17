@@ -6,4 +6,6 @@ recuperarCompraStorage()
 
 cargarProductos(compra)
 
-botonPagar.addEventListener("click", () => IrAPagar())
+botonPagar.addEventListener("click", () => irAPagar())
+
+botonLimpiar.addEventListener("click", () => mensajeSeguroBorrado())

@@ -1,6 +1,7 @@
 const tbody = document.querySelector("tbody")
 const totalAPagar = document.querySelector("div#totalAPagar")
 const botonPagar = document.querySelector("button.btn.btn-primary.btn-lg.pagar.botonGrande")
+const botonLimpiar = document.querySelector("button.btn.btn-primary.btn-lg.limpiar.botonGrande")
 const botonSeguirComprando = document.querySelector("button.btn.btn-primary.btn-lg.seguirComprando.botonGrande")
 
 const cargarProductos = (array) => {
@@ -13,7 +14,8 @@ const cargarProductos = (array) => {
 let tarjetaPrecio = document.querySelector("section.row")
 
 const guardarCompraStorage = () => {
-    compra.length > 0 && localStorage.setItem("compra", JSON.stringify(compra))
+    // compra.length > 0 && localStorage.setItem("compra", JSON.stringify(compra))
+    localStorage.setItem("compra", JSON.stringify(compra))
 }
 
 const recuperarCompraStorage = () => {
@@ -36,9 +38,11 @@ function agregarProdCarrito(el) {
     }
     guardarCompraStorage()
     cargarProductos(compra)
+    mensajeMoviCarrito("Se agrego " + el.nombre + " a la compra")
 }
 
 function quitarProdCarrito(indice) {
+    mensajeMoviCarrito("Se quito " + compra[indice].nombre + " a la compra")
     if (compra[indice].cantidad === 1) {
         compra.splice(indice,1)
     }
@@ -75,18 +79,7 @@ function calculaTotal() {
 
 function revisarPagoVuelto(valor) {
     let total = calculaTotal()
-    if (valor >= total) {
-        footerModal.innerHTML = `<button type="button" class="btn btn-primary confirmaConfirmaPago" data-bs-dismiss="modal">Confirma Compra</button>`
-        bodyModal.innerHTML = "El importe a pagar es $" + total + ".<br>" +
-                            "Usted abonara con $" + valor + ".<br>" +
-                            "Su vuelto es $" + (valor-total)
-        const botonConfirmaPagoFooterModal = document.querySelector("button.btn.btn-primary.confirmaConfirmaPago")
-        botonConfirmaPagoFooterModal.addEventListener("click", () => confirmaCompra())
-    }
-    else {
-        footerModal.innerHTML = `<button type="button" class="btn btn-danger noPasa" data-bs-dismiss="modal">Volver</button>`
-        bodyModal.innerHTML = "Debe ingresar un valor mayor o igual a $" + total
-    }
+    valor >= total ? mensajeSeguroConfirmaCompra(valor,total) : mensajeMoviCarrito("Debe ingresar un valor mayor o igual a $" + total)
 }
 
 function confirmaCompra() {
@@ -94,6 +87,80 @@ function confirmaCompra() {
     location.href ="index.html"
 }
 
-function IrAPagar() {
-    compra.length > 0 && (location.href = 'pagar.html')
+function irAPagar() {
+    compra.length > 0 ? (location.href = 'pagar.html') : mensajeMoviCarrito("Debe tener articulos para la compra")
+}
+
+function mensajeMoviCarrito(texto) {
+    Toastify({
+        text: texto,
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background:  "#1B4965",
+        },
+    }).showToast();
+}
+
+function limpiarCompra() {
+    compra.length=0
+    guardarCompraStorage()
+    cargarProductos(compra)
+    location.reload()
+}
+
+function mensajeSeguroBorrado() {
+    if(compra.length > 0) {
+        Swal.fire({
+            title: '¿Seguro desea vaciar el carrito?',
+            text: "¡Si vacia el carrito de compras se perdera todo lo cargado!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borrar todo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    '¡Carrito Borrado!',
+                    'El carito de compras se vacio.',
+                    'success',
+                    setTimeout(() => {limpiarCompra()}, 2000)
+                )
+            }
+        })
+    }
+    else {
+        mensajeMoviCarrito("Debe tener articulos para la compra")
+    }
+}
+
+function mensajeSeguroConfirmaCompra(valor,total) {
+    if(compra.length > 0) {
+        Swal.fire({
+            title: '¿Seguro confirma la compra?',
+            text: "El importe a pagar es $" + total +
+                ". Usted abonara con $" + valor +
+                ". Su vuelto es $" + (valor-total),
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Confirmo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    '¡Compra confirmada!',
+                    '¡Muchas gracias por su compra!',
+                    'success',
+                    setTimeout(() => {confirmaCompra()}, 2000)
+                )
+            }
+        })
+    }
+    else {
+        mensajeMoviCarrito("Debe tener articulos para la compra")
+    }
 }

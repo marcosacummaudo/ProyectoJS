@@ -68,6 +68,13 @@ td {
     border-color: #1B4965;
 }
 
+.botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
 .totalizaCompra {
     font-size: 20px;
     color:  #1B4965;
@@ -93,4 +100,6 @@ nav {
 
 main {
     margin-bottom: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
 }

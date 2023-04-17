@@ -13,8 +13,9 @@ devolverFormaPago()
 const imputValorEfectivo = document.querySelector("input#ingresoEfectivo")
 const imputDebitoNombre = document.querySelector("div.input#cc-name")
 const botonConfirmaPago = document.querySelector("button.btn.btn-primary.btn-lg.confirmaPago.botonGrande")
+
 botonConfirmaPago.addEventListener("click", () => revisarPagoVuelto(parseFloat(imputValorEfectivo.value)))
 
-const bodyModal = document.querySelector("div.modal-body")
+//const bodyModal = document.querySelector("div.modal-body")
 
-const footerModal = document.querySelector("div.modal-footer")
+//const footerModal = document.querySelector("div.modal-footer")
