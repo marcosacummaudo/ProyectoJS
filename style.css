@@ -104,3 +104,17 @@ main {
     margin-right: 10%;
 }
 
+.itemsListaSabores {
+    font-size: large;
+    color: #1B4965;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    list-style-type: none;
+}
+
+.descripcionListaSabores {
+    font-size: small;
+}
+
+.formaPago {
+    width: 50%;
+}

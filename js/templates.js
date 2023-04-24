@@ -1,5 +1,4 @@
 const contenedorTabla = document.querySelector("div.contentTabla")
-const contenedorTablaSabores = document.querySelector("div#listadoSabores")
 const footer = document.querySelector("footer")
 const fecha = new Date().getFullYear()
 
@@ -7,19 +6,26 @@ footer.innerHTML = `
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-4">
-                <p class="text-center"><img src="img/phone.svg" alt="telefono"> 0345 4217711 | <a href="https://api.whatsapp.com/send/?phone=543454015523&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank"><img src="img/icons8-whatsapp24.svg" alt="whatsapp"> 3454015523</a></p>
+                <p class="text-center"><img src="img/phone.svg" alt="telefono"> 0345 4217711 | 
+                    <a href="https://api.whatsapp.com/send/?phone=543454015523&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank">
+                        <img src="img/icons8-whatsapp24.svg" alt="whatsapp"> 3454015523
+                    </a>
+                </p>
             </div>
             <div class="col-xs-12 col-md-4">
                 <p class="text-center"><strong>© ${fecha} Helados Roma</strong></p>
             </div>
             <div class="col-xs-12 col-md-4">
-                <a href="https://www.instagram.com/heladeriaroma_/?hl=es" target="_blank"><p class="text-center"><img src="img/instagram.svg" alt="instagram"> ¡Seguinos!</p></a>
+                <a href="https://www.instagram.com/heladeriaroma_/?hl=es" target="_blank">
+                    <p class="text-center">
+                        <img src="img/instagram.svg" alt="instagram"> ¡Seguinos!
+                    </p>
+                </a>
             </div>
         </div>
     </div>`
 
-if(location.pathname !== '/sabores.html') {
-    contenedorTabla.innerHTML = `
+contenedorTabla.innerHTML = `
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -33,7 +39,6 @@ if(location.pathname !== '/sabores.html') {
             
         </tbody>
     </table>`
-}
 
 const retornoTablaHTML = (prod)=> {
     return `<tr>
@@ -41,16 +46,6 @@ const retornoTablaHTML = (prod)=> {
                 <td>${prod.cantidad}</td>
                 <td>${prod.precio}</td>
                 <td>${prod.precioTotal}</td>
-            </tr>`
-}
-
-const retornoTablaSaboresHTML = (prod)=> {
-    return `<tr>
-                <td>
-                    <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
-                    <button class="btn btn-primary" type="button" disabled>Disabled button</button>
-                    </span>
-                </td>
             </tr>`
 }
 
@@ -67,16 +62,15 @@ function retornoCardPrecio(el) {
 }
 
 function retornoErrorCardPrecio() {
-    tarjetaPrecio.innerText = `No se pudieron obtener los productos.`
+    tarjetaPrecio.innerHTML += `<h5>No se pudieron obtener los productos. Inténtelo más tarde.</h5>`
 }
 
 function devolverFormaPago () {
     formaPago.innerHTML = `
         <h6>Ingrese el importe con el que va a pagar:</h6>
-        <div class="col-6 input-group mb-3">
+        <div class="col-12 input-group mb-6">
             <span class="input-group-text">$</span>
             <span class="input-group-text">0.00</span>
             <input type="text" class="form-control" id="ingresoEfectivo" aria-label="Dollar amount (with dot and two decimal places)">
         </div>`
 }
-

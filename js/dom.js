@@ -2,6 +2,7 @@ const tbody = document.querySelector("tbody")
 const totalAPagar = document.querySelector("div#totalAPagar")
 const botonPagar = document.querySelector("button.btn.btn-primary.btn-lg.pagar.botonGrande")
 const botonSabores = document.querySelector("button.btn.btn-primary.btn-lg.sabores.botonGrande")
+const modalBody = document.querySelector("ul.listadoSaboresModal")
 const botonLimpiar = document.querySelector("button.btn.btn-primary.btn-lg.limpiar.botonGrande")
 const botonSeguirComprando = document.querySelector("button.btn.btn-primary.btn-lg.seguirComprando.botonGrande")
 
@@ -38,11 +39,11 @@ function agregarProdCarrito(el) {
     }
     guardarCompraStorage()
     cargarProductos(compra)
-    mensajeMoviCarrito("Se agrego " + el.nombre + " a la compra")
+    mensajeMoviCarrito("☑️ Se agrego " + el.nombre + " a la compra")
 }
 
 function quitarProdCarrito(indice) {
-    mensajeMoviCarrito("Se quito " + compra[indice].nombre + " a la compra")
+    mensajeMoviCarrito("✖️ Se quito " + compra[indice].nombre + " a la compra")
     if (compra[indice].cantidad === 1) {
         compra.splice(indice,1)
     }
@@ -79,7 +80,7 @@ function calculaTotal() {
 
 function revisarPagoVuelto(valor) {
     let total = calculaTotal()
-    valor >= total ? mensajeSeguroConfirmaCompra(valor,total) : mensajeMoviCarrito("Debe ingresar un valor mayor o igual a $" + total)
+    valor >= total ? mensajeSeguroConfirmaCompra(valor,total) : mensajeMoviCarrito("✖️ Debe ingresar un valor mayor o igual a $" + total)
 }
 
 function confirmaCompra() {
@@ -88,18 +89,17 @@ function confirmaCompra() {
 }
 
 function irAPagar() {
-    compra.length > 0 ? (location.href = 'pagar.html') : mensajeMoviCarrito("Debe tener articulos para la compra")
+    compra.length > 0 ? (location.href = 'pagar.html') : mensajeMoviCarrito("✖️ Debe tener articulos para la compra")
 }
 
 function irASabores() {
-    compra.length > 0 ? (location.href = 'sabores.html') : mensajeMoviCarrito("Debe tener articulos para la compra")
+    compra.length > 0 ? (location.href = 'sabores.html') : mensajeMoviCarrito("✖️ Debe tener articulos para la compra")
 }
-
 
 function mensajeMoviCarrito(texto) {
     Toastify({
         text: texto,
-        duration: 3000,
+        duration: 1000,
         gravity: "top", // `top` or `bottom`
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
@@ -138,7 +138,7 @@ function mensajeSeguroBorrado() {
         })
     }
     else {
-        mensajeMoviCarrito("Debe tener articulos para la compra")
+        mensajeMoviCarrito("✖️ Debe tener articulos para la compra")
     }
 }
 
@@ -166,7 +166,7 @@ function mensajeSeguroConfirmaCompra(valor,total) {
         })
     }
     else {
-        mensajeMoviCarrito("Debe tener articulos para la compra")
+        mensajeMoviCarrito("✖️ Debe tener articulos para la compra")
     }
 }
 
@@ -182,6 +182,3 @@ const obtenerProductos = () => {
             retornoErrorCardPrecio()
         })
 }
-
-
-
