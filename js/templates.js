@@ -1,4 +1,5 @@
 const contenedorTabla = document.querySelector("div.contentTabla")
+const contenedorTablaSabores = document.querySelector("div#listadoSabores")
 const footer = document.querySelector("footer")
 const fecha = new Date().getFullYear()
 
@@ -17,7 +18,8 @@ footer.innerHTML = `
         </div>
     </div>`
 
-contenedorTabla.innerHTML = `
+if(location.pathname !== '/sabores.html') {
+    contenedorTabla.innerHTML = `
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -31,6 +33,7 @@ contenedorTabla.innerHTML = `
             
         </tbody>
     </table>`
+}
 
 const retornoTablaHTML = (prod)=> {
     return `<tr>
@@ -38,6 +41,16 @@ const retornoTablaHTML = (prod)=> {
                 <td>${prod.cantidad}</td>
                 <td>${prod.precio}</td>
                 <td>${prod.precioTotal}</td>
+            </tr>`
+}
+
+const retornoTablaSaboresHTML = (prod)=> {
+    return `<tr>
+                <td>
+                    <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+                    <button class="btn btn-primary" type="button" disabled>Disabled button</button>
+                    </span>
+                </td>
             </tr>`
 }
 
@@ -53,6 +66,10 @@ function retornoCardPrecio(el) {
                                 </div>`
 }
 
+function retornoErrorCardPrecio() {
+    tarjetaPrecio.innerText = `No se pudieron obtener los productos.`
+}
+
 function devolverFormaPago () {
     formaPago.innerHTML = `
         <h6>Ingrese el importe con el que va a pagar:</h6>
@@ -62,3 +79,4 @@ function devolverFormaPago () {
             <input type="text" class="form-control" id="ingresoEfectivo" aria-label="Dollar amount (with dot and two decimal places)">
         </div>`
 }
+

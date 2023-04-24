@@ -1,6 +1,7 @@
 const tbody = document.querySelector("tbody")
 const totalAPagar = document.querySelector("div#totalAPagar")
 const botonPagar = document.querySelector("button.btn.btn-primary.btn-lg.pagar.botonGrande")
+const botonSabores = document.querySelector("button.btn.btn-primary.btn-lg.sabores.botonGrande")
 const botonLimpiar = document.querySelector("button.btn.btn-primary.btn-lg.limpiar.botonGrande")
 const botonSeguirComprando = document.querySelector("button.btn.btn-primary.btn-lg.seguirComprando.botonGrande")
 
@@ -14,7 +15,6 @@ const cargarProductos = (array) => {
 let tarjetaPrecio = document.querySelector("section.row")
 
 const guardarCompraStorage = () => {
-    // compra.length > 0 && localStorage.setItem("compra", JSON.stringify(compra))
     localStorage.setItem("compra", JSON.stringify(compra))
 }
 
@@ -30,7 +30,7 @@ function cargarPrecios() {
 function agregarProdCarrito(el) {
     let indice = compra.map(elem => elem.codigo).indexOf(el.codigo)
     if (indice === -1) {
-        compra.push(new artCompra(el.codigo,el.nombre,el.precio,1))
+        compra.push(new artCompra(el.codigo,el.nombre,el.precio,el.cantGustos,1))
     }
     else {
         compra[indice].cantidad++
@@ -90,6 +90,11 @@ function confirmaCompra() {
 function irAPagar() {
     compra.length > 0 ? (location.href = 'pagar.html') : mensajeMoviCarrito("Debe tener articulos para la compra")
 }
+
+function irASabores() {
+    compra.length > 0 ? (location.href = 'sabores.html') : mensajeMoviCarrito("Debe tener articulos para la compra")
+}
+
 
 function mensajeMoviCarrito(texto) {
     Toastify({
@@ -164,3 +169,19 @@ function mensajeSeguroConfirmaCompra(valor,total) {
         mensajeMoviCarrito("Debe tener articulos para la compra")
     }
 }
+
+const obtenerProductos = () => {
+    fetch(urlProductos)
+        .then(response => response.status === 200 && response.json())
+        .then((data)=> tamHelados.push(...data))
+        .then(()=> {
+            cargarPrecios(tamHelados)
+            habilitarClic()
+        })
+        .catch(error=> {
+            retornoErrorCardPrecio()
+        })
+}
+
+
+

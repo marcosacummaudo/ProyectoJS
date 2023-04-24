@@ -1,11 +1,13 @@
-cargarPrecios()
+//debugger
+//cargarPrecios()
+obtenerProductos()
 
-habilitarClic()
+//habilitarClic()
 
 recuperarCompraStorage()
 
 cargarProductos(compra)
 
-botonPagar.addEventListener("click", () => irAPagar())
+botonSabores.addEventListener("click", () => irASabores())
 
 botonLimpiar.addEventListener("click", () => mensajeSeguroBorrado())
